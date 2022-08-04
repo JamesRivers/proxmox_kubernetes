@@ -1,0 +1,33 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: dashboard-viewer
+aggregationRule:
+  clusterRoleSelectors:
+  - matchLabels:
+      rbac.authorization.k8s.io/aggregate-to-view: "true"
+  - matchLabels:
+      rbac.homelab.k8s.io/aggregate-to-view: "true"
+rules: []
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: dashboard-extended-view
+  labels:
+    rbac.homelab.k8s.io/aggregate-to-view: "true"
+rules:
+- apiGroups:
+  - ""
+  resources:
+  - nodes
+  - extensions
+  - apps
+  - batch
+  - storage
+  - networking
+  verbs:
+  - get
+  - list
+  - watch
