@@ -169,16 +169,6 @@ ansible-playbook -i ansible/inventory.yaml ansible/metallb.yaml -K
 ```
 Done! 
 
-
-## Kubernetes Dashboard
-Install Kubernetes Dashboard following the [docs](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/). At the moment of writing, it is sufficient to run:
-```
-kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.4.0/aio/deploy/recommended.yaml
-```
-To access the dashboard UI, run `kubectl proxy` and open [localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/](http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/)
-
-Note change localhost as yoe need from proxy run machine. 
-
 ## Lets install something and verifiy our install...
 
 To verify the installation, we are going to create a [MinIO](https://min.io/) Deployment with a PersistentVolume for storage, and expose the deployment to the local network via the LoadBalancer Service type. The example is based on the Kubernetes storage examples.
