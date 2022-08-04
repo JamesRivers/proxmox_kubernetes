@@ -1,0 +1,18 @@
+all:
+  children:
+    control-plane:
+      hosts:
+        control-plane-0.k8s.cluster:
+          ansible_host: 192.168.50.110
+          ansible_user: ubuntu
+    worker-nodes:
+      hosts:
+        worker-0.k8s.cluster:
+          ansible_host: 192.168.50.120
+          ansible_user: ubuntu
+        worker-1.k8s.cluster:
+          ansible_host: 192.168.50.121
+          ansible_user: ubuntu
+        worker-2.k8s.cluster:
+          ansible_host: 192.168.50.122
+          ansible_user: ubuntu

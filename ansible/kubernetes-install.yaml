@@ -1,0 +1,5 @@
+---
+
+- import_playbook: control-plane.yaml
+- import_playbook: worker-nodes.yaml
+- import_playbook: kubernetes-fetch-config.yaml
